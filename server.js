@@ -13,7 +13,7 @@ app.set('view engine','hbs')
 app.use(express.static(__dirname+'/public'));
 
 app.use((req,res,next)=>{
-    res.render('matienence.hbs'{
+    res.render('matienence.hbs',{
       pageTitle:'Matienence Page'
     })
 })
