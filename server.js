@@ -12,7 +12,7 @@ hbs.registerHelper('getCurrentYear',()=>{
 app.set('view engine','hbs')
 app.use(express.static(__dirname+'/public'));
 
-app.use((req,res,next)=>{
+//app.use((req,res,next)=>{
     res.render('matienence.hbs',{
       pageTitle:'Matienence Page'
     })
@@ -31,13 +31,20 @@ app.get('/about',(request,response)=>{
     pageTitle:'About Page',
 
   });
-})
+});
+
+app.get('/projects',(request,response)=>{
+  response.render('projects.hbs',{
+    pageTitle:'Portfolio Page',
+
+  });
+});
 
  app.get('/bad',(request,response)=>{
    response.send({
      error:"404 page"
-   })
- })
+   });
+ });
 
  app.listen(port, ()=>{
    console.log(`port is ${port}`);
